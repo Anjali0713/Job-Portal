@@ -16,7 +16,7 @@ import {
   Target,
   TrendingUp
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import type { User, Page } from '../App';
 
 type ResumeAnalyzerProps = {
@@ -75,7 +75,8 @@ export function ResumeAnalyzer({ user, onNavigate }: ResumeAnalyzerProps) {
     toast.success('Resume analysis complete!');
   } catch (err) {
     console.error(err);
-    toast.error('Analysis failed: ' + (err.message || 'Unknown error'));
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+    toast.error('Analysis failed: ' + errorMessage);
   } finally {
     setAnalyzing(false);
   }

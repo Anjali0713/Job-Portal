@@ -12,6 +12,9 @@ import { ChatbotWidget } from './components/ChatbotWidget';
 import { Toaster } from './components/ui/sonner';
 
 export type User = {
+  skills: any;
+  authUserId: unknown;
+  token: any;
   id: string;
   name: string;
   email: string;
@@ -107,7 +110,7 @@ export default function App() {
       case 'profile':
         return <ProfilePage user={user!} onUpdateUser={setUser} onNavigate={setCurrentPage} />;
       case 'resume-builder':
-        return <ResumeBuilder user={user!} onNavigate={setCurrentPage} />;
+        return <ResumeBuilder user={user!} onNavigate={setCurrentPage} onResumeGenerated={(pdfUrl) => setUser({ ...user!, resumeUrl: pdfUrl })} />;
       case 'resume-analyzer':
         return <ResumeAnalyzer user={user!} onNavigate={setCurrentPage} />;
       case 'career-paths':

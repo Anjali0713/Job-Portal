@@ -1,4 +1,4 @@
-import { DashboardLayout } from '../DashboardLayout';
+import { DashboardLayout } from './DashboardLayout';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -316,7 +316,7 @@ export function Applications({ user, onNavigate }: ApplicationsProps) {
           </div>
           <div className="flex gap-2 justify-end">
             <Button 
-              variant="outline" 
+              variant="outline" as const
               size="sm"
               onClick={handleCancelEdit}
             >
@@ -324,7 +324,7 @@ export function Applications({ user, onNavigate }: ApplicationsProps) {
               Cancel
             </Button>
             <Button 
-              variant="default" 
+              variant="default" as const
               size="sm"
               onClick={() => handleSaveEdit(app._id)}
             >
@@ -376,7 +376,7 @@ export function Applications({ user, onNavigate }: ApplicationsProps) {
 
           <div className="flex gap-2">
             <Button 
-              variant="outline" 
+              variant="outline" as const
               size="sm"
               onClick={() => app.jobUrl && window.open(app.jobUrl, '_blank')}
               disabled={!app.jobUrl}
@@ -386,7 +386,7 @@ export function Applications({ user, onNavigate }: ApplicationsProps) {
             </Button>
             
             <Button 
-              variant="secondary" 
+              variant="secondary" as const
               size="sm"
               onClick={() => handleEditApplication(app)}
             >
@@ -395,7 +395,7 @@ export function Applications({ user, onNavigate }: ApplicationsProps) {
             </Button>
 
             <Button 
-              variant="destructive" 
+              variant="destructive" as const
               size="sm"
               onClick={() => handleDeleteApplication(app._id)}
             >

@@ -16,7 +16,7 @@ import {
   Send,
   Loader2
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import type { User, Page } from '../App';
 
 type JobListingsProps = {
@@ -129,7 +129,7 @@ export function JobListings({ user, onNavigate }: JobListingsProps) {
     if (!user.skills || user.skills.length === 0) return 0;
     
     const jobText = `${job.job_title} ${job.job_description}`.toLowerCase();
-    const matchingSkills = user.skills.filter(skill => 
+    const matchingSkills = user.skills.filter((skill: string) => 
       jobText.includes(skill.toLowerCase())
     );
     
@@ -367,7 +367,7 @@ export function JobListings({ user, onNavigate }: JobListingsProps) {
                         <p className="text-xs text-muted-foreground mb-2">Required Skills:</p>
                         <div className="flex flex-wrap gap-2">
                           {skills.map((skill) => {
-                            const hasSkill = user.skills?.some(s => 
+                            const hasSkill = user.skills?.some((s: string) => 
                               s.toLowerCase() === skill.toLowerCase()
                             ) ?? false;
                             return (
